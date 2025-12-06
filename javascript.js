@@ -24,22 +24,46 @@ function createGrid(input) {
     }
 }   
 
-function colourChanger() {
-    let changeColour = container.querySelectorAll(".box")
-    changeColour.forEach((box) => {
-        box.addEventListener("mousemove", () => {
-            box.style.backgroundColor = "black"
-            box.addEventListener("mouseout", () => {
-                box.style.backgroundColor = "grey"
-            })
-        })
-    })
-}
-
 function clearPrevious() {
     const clearingNode = document.querySelector("#container")
     while(clearingNode.firstChild) {
         clearingNode.removeChild(clearingNode.firstChild)
     }
+}
+
+let colour
+function colourChoice() {
+    let random = Math.floor(Math.random() * 8) + 1
+    if (random === 1) {
+        return colour = "red"
+    } else if (random === 2) {
+        return colour = "orange"
+    } else if (random === 3) {
+        return colour = "yellow"
+    } else if (random === 4) {
+        return colour = "green"
+    } else if (random === 5) {
+        return colour = "blue"
+    } else if (random === 6) {
+        return colour = "indigo"
+    } else if (random === 7) {
+        return colour = "violet"
+    } else {
+        return colour = "lightgrey"
+    }
+}
+
+function colourChanger() {
+    let changeColour = container.querySelectorAll(".box")
+    changeColour.forEach((box) => {
+        box.style.backgroundColor = "lightgrey"
+        box.addEventListener("mouseenter", () => { 
+            box.style.backgroundColor = "black"
+            box.addEventListener("mouseout", () => {
+                colourChoice()
+                box.style.backgroundColor = colour
+            })
+        })
+    })
 }
 
