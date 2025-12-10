@@ -1,1 +1,1 @@
-# etch-a-sketch
+Done as part of the Odin Project.
